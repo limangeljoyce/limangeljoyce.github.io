@@ -10,14 +10,14 @@
 </head>
 <body>
   <header>
-    <h1 class="typing">👩‍💻 Angel Joyce S. Lim</h1>
+    <h1 class="typing">👩‍💻 <span id="typing-text"></span></h1>
     <p><strong>IT Technical Support | Web Developer | System Admin</strong></p>
     <p>Dagupan City, Pangasinan, Philippines</p>
     <p>📧 lim.angeljoyce.s@gmail.com | 📞 0955-684-1758</p>
     <button class="theme-toggle">🌓 Toggle Theme</button>
   </header>
 
-  <section id="about">
+  <section id="about" class="reveal">
     <h2>💡 About Me</h2>
     <blockquote>
       "To empower business through innovative and reliable IT solutions, driving their growth, productivity and success in the digital era."
@@ -25,7 +25,7 @@
     <p>I’m an experienced IT professional focused on delivering modern, reliable, and efficient tech solutions. I specialize in web development, system administration, and cloud infrastructure, with strong experience supporting academic and business institutions.</p>
   </section>
 
-  <section id="skills">
+  <section id="skills" class="reveal">
     <h2>🔧 Skills</h2>
     <ul>
       <li>Web Development (WordPress, Drupal, Joomla)</li>
@@ -38,12 +38,12 @@
     </ul>
   </section>
 
-  <section id="education">
+  <section id="education" class="reveal">
     <h2>🧠 Education</h2>
     <p><strong>Bachelor of Science in Information Technology</strong><br>Lyceum-Northwestern University<br>Graduated: August 2020</p>
   </section>
 
-  <section id="experience">
+  <section id="experience" class="reveal">
     <h2>💼 Work Experience</h2>
     <p><strong>IT Technical Support</strong><br>Lyceum-Northwestern University (Dec 2020 – Present)</p>
     <ul>
@@ -55,7 +55,7 @@
     </ul>
   </section>
 
-  <section id="projects">
+  <section id="projects" class="reveal">
     <h2>📂 Projects</h2>
     <ul>
       <li><strong>📘 University Website Revamp:</strong> WordPress site designed for Lyceum-Northwestern University</li>
@@ -64,7 +64,7 @@
     </ul>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="reveal">
     <h2>📬 Get in Touch</h2>
     <ul>
       <li>✉️ Email: lim.angeljoyce.s@gmail.com</li>
@@ -75,6 +75,43 @@
   <footer>
     <p>Made with ❤️ by Angel Joyce S. Lim</p>
   </footer>
+
+  <!-- ✅ JavaScript for animations & typing effect -->
+  <script>
+    // Typing effect
+    const text = "Angel Joyce S. Lim";
+    let index = 0;
+    function typeEffect() {
+      if (index < text.length) {
+        document.getElementById("typing-text").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 100);
+      }
+    }
+    document.addEventListener("DOMContentLoaded", typeEffect);
+
+    // Reveal on scroll
+    function revealElements() {
+      const reveals = document.querySelectorAll(".reveal");
+      for (let el of reveals) {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+          el.classList.add("active");
+        }
+      }
+    }
+    window.addEventListener("scroll", revealElements);
+    window.addEventListener("load", revealElements);
+
+    // Dark/light theme toggle
+    const toggleBtn = document.querySelector(".theme-toggle");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+    });
+  </script>
+</body>
+</html>
+
 
   <script>
     // Simple dark/light toggle
@@ -95,6 +132,116 @@
     };
     type();
   </script>
+
+  <!-- 👇 Add this to the bottom of your index.html, before </body> -->
+<script>
+  // 🌙 DARK / LIGHT MODE TOGGLE
+  const toggleTheme = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  toggleTheme?.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+  });
+
+  // 🔁 Load user's theme preference
+  if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-mode');
+  }
+
+  // 🆙 BACK TO TOP BUTTON
+  const backToTop = document.createElement('button');
+  backToTop.innerText = '⬆';
+  backToTop.id = 'backToTop';
+  backToTop.style.cssText = `
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    font-size: 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    z-index: 9999;
+  `;
+  document.body.appendChild(backToTop);
+
+  window.addEventListener('scroll', () => {
+    backToTop.style.display = window.scrollY > 200 ? 'block' : 'none';
+  });
+
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // 🧠 TYPING EFFECT (Header)
+  const typingTarget = document.getElementById('typing-text');
+  const words = ["IT Technical Support", "Web Developer", "System Admin"];
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function type() {
+    if (!typingTarget) return;
+    const currentWord = words[wordIndex];
+    const currentText = isDeleting
+      ? currentWord.substring(0, charIndex--)
+      : currentWord.substring(0, charIndex++);
+
+    typingTarget.textContent = currentText;
+
+    if (!isDeleting && charIndex === currentWord.length + 1) {
+      isDeleting = true;
+      setTimeout(type, 1000);
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+      setTimeout(type, 500);
+    } else {
+      setTimeout(type, isDeleting ? 50 : 100);
+    }
+  }
+
+  type(); // Start typing effect
+
+  // 🌀 SCROLL REVEAL ANIMATIONS
+  const revealElements = document.querySelectorAll(".reveal");
+
+  function revealOnScroll() {
+    const windowHeight = window.innerHeight;
+    revealElements.forEach((el) => {
+      const top = el.getBoundingClientRect().top;
+      if (top < windowHeight - 100) {
+        el.classList.add("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll();
+</script>
+
+<!-- 👇 Add this inside your <head> or CSS file -->
+<style>
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease-out;
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .dark-mode {
+    background: #121212;
+    color: #f0f0f0;
+  }
+</style>
 </body>
 </html>
+
 
