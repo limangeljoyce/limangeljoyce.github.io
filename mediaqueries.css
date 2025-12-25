@@ -1,0 +1,26 @@
+/* Responsive rules */
+
+@media (max-width: 1000px){
+  .projects-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:1fr}
+  .hero-inner{flex-direction:column}
+  .hero-avatar{margin-top:1rem}
+}
+
+@media (max-width: 700px){
+  .nav-toggle{display:inline-flex}
+  .main-nav{display:none}
+  .main-nav.open{display:block}
+  .main-nav ul{gap:0}
+  .main-nav a{display:block;padding:0.5rem 0}
+
+  .projects-grid{grid-template-columns:1fr}
+  .hero h1{font-size:1.5rem}
+  .avatar{width:100px;height:100px;font-size:1.5rem}
+  .header-inner{padding:0.5rem 0}
+}
+
+@media (prefers-color-scheme: dark){
+  :root{--bg:#071020;--text:#e6eef6;--muted:#9fb4c9;--card:#0b1720}
+  .site-header,.site-footer{background:transparent;border-color:rgba(255,255,255,0.06)}
+}

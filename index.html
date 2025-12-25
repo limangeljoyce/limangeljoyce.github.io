@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Angel Joyce S. Lim</title>
+    <link rel="icon" href="assets/571050754_1390127975879223_3664679278661346899_n.jpg" />
+    <meta name="description" content="Personal portfolio showcasing projects built with HTML, CSS and JavaScript." />
+    <meta name="theme-color" content="#879A77" />
+    <!-- Modern font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+</head>
+<body>
+        <!-- Animated particle network background -->
+        <canvas id="particle-canvas" class="particle-bg"></canvas>
+        
+        <header class="site-header">
+            <div class="container header-inner">
+                <a class="logo" href="#home">
+                    <img src="assets/571050754_1390127975879223_3664679278661346899_n.jpg" alt="Angel Joyce logo" class="logo-img" />
+                    <span class="logo-text">limangeljoyce</span>
+                </a>
+                <nav id="main-nav" class="main-nav">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-right">
+                    <div class="header-socials">
+                        <a href="https://twitter.com" aria-label="Twitter" class="social-chip">t</a>
+                        <a href="https://github.com/limangeljoyce" aria-label="GitHub" class="social-chip">gh</a>
+                        <a href="https://www.linkedin.com" aria-label="LinkedIn" class="social-chip">in</a>
+                    </div>
+                    <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                        <span class="hamburger"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+    <main>
+        <section id="home" class="hero hero--modern hero--light">
+            <div class="container hero-inner">
+                <figure class="hero-art" aria-hidden="true">
+                    <img src="assets/571050754_1390127975879223_3664679278661346899_n.jpg" alt="" />
+                </figure>
+                <div class="hero-text">
+                    <h1>Shaping Dreams into Digital Realities.</h1>
+                    <p class="lead">I design and ship reliable web and IT solutions—front to back, infra to production.</p>
+                    <p class="typed" id="typed">IT Technical Support · Web Developer · System Admin</p>
+                    <p class="hero-cta">
+                        <a class="btn" href="#projects">See my work</a>
+                        <a class="btn btn-outline" href="#contact">Contact</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section" data-aos="fade-up" data-aos-duration="800">
+            <div class="container narrow">
+                <h2>About</h2>
+                <p>I’m an experienced IT professional focused on delivering modern, reliable, and efficient tech solutions. I specialize in web development, system administration, and cloud infrastructure, with strong experience supporting academic and business institutions.</p>
+                <ul class="pill-list">
+                    <li>Website Development & Maintenance</li>
+                    <li>System & Server Administration</li>
+                    <li>Virtualization & Cloud Infrastructure</li>
+                    <li>Networking & Disaster Recovery</li>
+                    <li>Web Hosting Services</li>
+                    <li>Design Support (Photoshop & Canva)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects" class="section" data-aos="fade-up" data-aos-duration="800">
+            <div class="container">
+                <h2>Projects</h2>
+                <div class="projects-grid simple">
+                    <article class="project-card minimal" data-aos="zoom-in" data-aos-delay="100">
+                        <h3>University Website Revamp</h3>
+                        <p>Custom theme and responsive layout aligned with university branding.</p>
+                    </article>
+                    <article class="project-card minimal" data-aos="zoom-in" data-aos-delay="200">
+                        <h3>Dockerized WordPress Auto-Deployment</h3>
+                        <p>CI-driven builds, container orchestration, and one-click deploy.</p>
+                    </article>
+                    <article class="project-card minimal" data-aos="zoom-in" data-aos-delay="300">
+                        <h3>Guestbook App</h3>
+                        <p>Laravel visitor messages with auth, CRUD, and export.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section" data-aos="fade-up" data-aos-duration="800">
+            <div class="container narrow">
+                <h2>Contact</h2>
+                <p>If you'd like to work together, email me at <a href="mailto:lim.angeljoyce.s@gmail.com">lim.angeljoyce.s@gmail.com</a> or use the links below.</p>
+                <p>
+                    <a class="btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=lim.angeljoyce.s@gmail.com" target="_blank" rel="noopener noreferrer">Email me</a>
+                    <a class="btn btn-outline" href="https://github.com/limangeljoyce" target="_blank" rel="noopener noreferrer">GitHub</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+        <footer class="site-footer">
+            <div class="container footer-inner">
+                <small>© 2025 limangeljoyce</small>
+                <nav class="social">
+                    <a href="https://github.com/limangeljoyce" target="_blank" rel="noopener noreferrer">GitHub</a>
+                </nav>
+            </div>
+        </footer>
+
+        <div class="corner-bulb" aria-hidden="true">💡</div>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

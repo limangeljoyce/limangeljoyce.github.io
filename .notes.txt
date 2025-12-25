@@ -1,0 +1,1 @@
+Temporary work note: add online-dot span in index.html and CSS styles in style.css.
